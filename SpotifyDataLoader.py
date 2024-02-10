@@ -27,8 +27,6 @@ for file in os.listdir(directory):
             songCount[i['master_metadata_track_name']] = songCount[i['master_metadata_track_name']] + 1
         else:
             songCount[i['master_metadata_track_name']] = 1
-        #print(i["ts"])
-        #print(i['master_metadata_track_name'])
     # Closing file
     fileData.close()
 
@@ -49,11 +47,19 @@ window.geometry("1024x720")
 
 songLabelList = []
 
-for i in range(60):
+countX = 0
+countY = 0
+
+for i in range(120):
+    if(i%45 == 0 and i != 0):
+        countX += 3
+    if(i%30 == 0 and i != 0):
+        countY = 0
     songLabelList.append(tk.Label(window, text = (songList[i], songCount[songList[i]], "times.")))
-    songLabelList[i].config(font=("Times New Roman", 5))
-    songLabelList[i].place(relx=1,rely=0 ,anchor='nw')
-    songLabelList[i].pack()
+    songLabelList[i].config(font=("Times New Roman", 10))
+    songLabelList[i].place(relx=countX/10,rely=countY/50 ,anchor='nw')
+    countY += 1.5
+    #songLabelList[i].pack()
 
 
 window.mainloop()
