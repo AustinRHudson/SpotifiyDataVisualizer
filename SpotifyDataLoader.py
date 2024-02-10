@@ -49,9 +49,10 @@ songLabelList = []
 
 countX = 0
 countY = 0
+numberOfSongs = 90
 
-for i in range(120):
-    if(i%45 == 0 and i != 0):
+for i in range(numberOfSongs):
+    if(i%30 == 0 and i != 0):
         countX += 3
     if(i%30 == 0 and i != 0):
         countY = 0
